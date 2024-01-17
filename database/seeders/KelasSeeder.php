@@ -13,17 +13,56 @@ class KelasSeeder extends Seeder
      */
     public function run(): void
     {
+        // Kelas::create([
+        //     'name' => 'X 1',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'X 2',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'X 3',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'X 4',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XI AGAMA',
+        // ]);
+
         Kelas::create([
-            'name' => 'X IPA',
+            'name' => 'XI MIA',
         ]);
+
         Kelas::create([
-            'name' => 'XI IPS',
+            'name' => 'XI IIS 1',
         ]);
-        Kelas::create([
-            'name' => 'XII IPS',
-        ]);
-        Kelas::create([
-            'name' => 'XI IPA',
-        ]);
+
+        // Kelas::create([
+        //     'name' => 'XI IIS 2',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XII AGAMA 1',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XII AGAMA 2',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XII MIA',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XII IIS 1',
+        // ]);
+
+        // Kelas::create([
+        //     'name' => 'XII IIS 2',
+        // ]);
     }
 }

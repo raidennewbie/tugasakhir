@@ -19,7 +19,6 @@ class Guru
         if(Auth::check() && $request->user()->role === 'guru'){
             return $next($request);
         }
-
         return redirect('/login');
     }
 }

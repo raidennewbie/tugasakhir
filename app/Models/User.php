@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class User extends Authenticatable
 {
@@ -18,6 +20,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = ['id'];
+
+    public function jadwal()
+    {
+        return $this->hasMany(jadwal::class);
+    }
+    
 
     // protected $fillable = [
     //     'name',
@@ -45,4 +53,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Cari pengguna berdasarkan nama atau email.
+     *
+     * @param string $query
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+     
+     public static function search($query)
+     {
+         return self::where('name', 'LIKE', "%$query%")
+             ->orWhere('role', 'LIKE', "%$query%");
+     }
+
 }

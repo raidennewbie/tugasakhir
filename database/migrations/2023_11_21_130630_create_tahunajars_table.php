@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tahunajars', function (Blueprint $table) {
             $table->id();
+            $table->string('tahun_ajaran')->unique();
             $table->timestamps();
         });
     }

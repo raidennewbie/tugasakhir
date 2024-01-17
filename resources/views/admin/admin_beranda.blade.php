@@ -1,4 +1,4 @@
-@extends('app.main')
+@extends('app.main_admin')
 
 @section('container')
     <div class="card">
@@ -7,11 +7,9 @@
                 <div class="card-body">
                     <h5 class="card-title text-primary">Selamat Datang, {{ auth()->user()->name }}</h5>
                     <p class="mb-4">
-                        You have done <span class="fw-bold">72%</span> more sales today.
-                        Check your new badge in
-                        your profile.
-                    </p>
+                        Apa yang akan kamu lakukan hari ini?
                 </div>
+
             </div>
             <div class="col-sm-5 text-center text-sm-left">
                 <div class="card-body pb-0 px-0 px-md-4">
@@ -22,4 +20,72 @@
             </div>
         </div>
     </div>
-@endsection
+    <br>
+    <div class="col-lg-12 col-md-4 order-1">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="fw-semibold d-block mb-1">Pengguna</span>
+                        <h3 class="card-title mb-2">{{ $jumlahPengguna }}</h3>
+                        <a href="{{ route('admin.user.index') }}">
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>Lihat..</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="fw-semibold d-block mb-1">Siswa</span>
+                        <h3 class="card-title mb-2">{{ $jumlahSiswa }}</h3>
+                        <a href="{{ route('admin.siswa.index') }}">
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>Lihat..</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="fw-semibold d-block mb-1">Mata Pelajaran</span>
+                        <h3 class="card-title mb-2">{{ $jumlahMapel }}</h3>
+                        <a href="{{ route('admin.mapel.index') }}">
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>Lihat..</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="fw-semibold d-block mb-1">Kelas</span>
+                        <h3 class="card-title mb-2">{{ $jumlahKelas }}</h3>
+                        <a href="{{ route('admin.kelas.index') }}">
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>Lihat..</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            {{--  --}}
+
+
+            <div class="col-lg-6 col-md-12 col-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="fw-semibold d-block mb-1">Jadwal</span>
+                        <h3 class="card-title mb-2">{{ $jumlahjadwal }}</h3>
+                        <a href="{{ route('admin.jadwal.index') }}">
+                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>Lihat..</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        @endsection
