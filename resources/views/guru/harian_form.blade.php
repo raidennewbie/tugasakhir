@@ -3,23 +3,23 @@
 @section('container')
     <div class="card">
         <div class="app-brand mb-1 p-2 m-2">
-            <h4 class="demo text-body">Laporan Rekap Absensi</h4>
+            <h4 class="demo text-body">Laporan Absensi</h4>
         </div>
      
         <div class="card-body">
          {{--  --}}
-         <form action="/guru/laporan/absensi" method="GET" target="_blank">
+         <form action="/guru/laporan/harian" method="GET" target="_blank">
             @csrf
             <div class="form-row mb-2 mt-2">
                 <div class="form-group col-md-6 mb-2 mt-2">
                     <label for="tanggal_awal"  class="form-label">Tanggal Awal</label>
                     <input type="date" class="form-control" id="tanggal_awal" name="tanggal_awal"
-                        value="{{ now()->subMonth(3)->format('Y-m-d') }}">
+                        value="{{ now()->subMonth(1)->format('Y-m-d') }}">
                 </div>
                 <div class="form-group col-md-6 mb-2 mt-2">
                     <label for="tanggal_akhir"  class="form-label">Tanggal Akhir</label>
                     <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir"
-                        value="{{ now()->addWeek(2)->format('Y-m-d') }}">
+                        value="{{ now()->format('Y-m-d') }}">
                 </div>
 
                 <div class="mb-2 mt-2">
@@ -71,7 +71,7 @@
                 
             </div>
             <button type="submit" class="btn btn-primary mt-3">Generate Laporan</button>
-        </form>
+        </form>-
          {{--  --}}
         </div>
     </div>

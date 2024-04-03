@@ -55,7 +55,7 @@
         {{--  --}}
         <input type="hidden" name="jadwal_id" value="{{ $jadwal->id }}">
         {{--  --}}
-        <div class="table-responsive">
+        <div class="table-responsive mt-3">
             <table class="table">
                 <thead>
                     <tr>
@@ -77,25 +77,25 @@
                                         <div class="d-flex">
                                             <div class="form-check me-3">
                                                 <input class="form-check-input" type="radio"
-                                                    name="siswa_id[{{ $siswa->id }}]" id="hadir_{{ $siswa->id }}"
-                                                    value="hadir" @if (old('status.' . $siswa->id) == 'hadir') checked @endif />
-                                                <label class="form-check-label form-label" for="hadir_{{ $siswa->id }}">
+                                                    name="siswa_id[{{ $siswa->id }}]" id="H_{{ $siswa->id }}"
+                                                    value="H" @if (old('status.' . $siswa->id) == 'H') checked @endif />
+                                                <label class="form-check-label form-label" for="H_{{ $siswa->id }}">
                                                     H
                                                 </label>
                                             </div>
                                             <div class="form-check me-3">
                                                 <input class="form-check-input" type="radio"
-                                                    name="siswa_id[{{ $siswa->id }}]" id="izin_{{ $siswa->id }}"
-                                                    value="izin" @if (old('status.' . $siswa->id) == 'izin') checked @endif />
-                                                <label class="form-check-label form-label" for="izin_{{ $siswa->id }}">
+                                                    name="siswa_id[{{ $siswa->id }}]" id="I_{{ $siswa->id }}"
+                                                    value="I" @if (old('status.' . $siswa->id) == 'I') checked @endif />
+                                                <label class="form-check-label form-label" for="I_{{ $siswa->id }}">
                                                     I
                                                 </label>
                                             </div>
                                             <div class="form-check me-3">
                                                 <input class="form-check-input" type="radio"
-                                                    name="siswa_id[{{ $siswa->id }}]" id="alpa_{{ $siswa->id }}"
-                                                    value="alpa" @if (old('status.' . $siswa->id) == 'alpa') checked @endif />
-                                                <label class="form-check-label form-label" for="alpa_{{ $siswa->id }}">
+                                                    name="siswa_id[{{ $siswa->id }}]" id="A_{{ $siswa->id }}"
+                                                    value="A" @if (old('status.' . $siswa->id) == 'A') checked @endif />
+                                                <label class="form-check-label form-label" for="A_{{ $siswa->id }}">
                                                     A
                                                 </label>
                                             </div>

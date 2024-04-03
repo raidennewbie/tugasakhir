@@ -56,8 +56,15 @@
                         </a>
                     </li>
 
+                    <li class="menu-item {{ Request::is('guru/nilai*') ? 'active' : '' }}">
+                        <a href="/guru/nilaii" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-bookmark"></i>
+                            <div data-i18n="Analytics">Nilai</div>
+                        </a>
+                    </li>
+
                     <li class="menu-item {{ Request::is('guru/laporan*') ? 'active' : '' }}">
-                        <a href="/guru/laporan/absensi" class="menu-link">
+                        <a href="/guru/laporan" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-ghost"></i>
                             <div data-i18n="Analytics">Laporan</div>
                         </a>

@@ -3,7 +3,7 @@
 @section('container')
     <div class="card">
         <div class="app-brand mb-1 p-2 m-2">
-            <h4 class="demo text-body">Laporan Absensi</h4>
+            <h4 class="demo text-body">Laporan Rekap Absensi</h4>
         </div>
      
         <div class="card-body">

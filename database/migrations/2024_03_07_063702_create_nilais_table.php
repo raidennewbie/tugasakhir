@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absensis', function (Blueprint $table) {
+        Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('mapel_id');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('semester_id');
             $table->foreignId('tahunajar_id');
             $table->foreignId('siswa_id');
-            $table->enum('status', ["H","I","A"]);
+            $table->integer('nilai')->nullable();
             $table->foreignId('jadwal_id');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absensis');
+        Schema::dropIfExists('nilais');
     }
 };

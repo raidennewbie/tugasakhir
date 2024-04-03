@@ -12,6 +12,8 @@ use App\Models\Tahunajar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class JadwalController extends Controller
 {
@@ -56,21 +58,71 @@ public function index(Request $request)
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     $requestData = $request->validate([
+    //         'user_id' => 'required',
+    //         'kelas_id' => 'required',
+    //         'mapel_id' => 'required',
+    //         'semester_id' => 'required',
+    //         'tahunajar_id' => 'required',
+    //         'hari' => 'required',
+    //         'jam_masuk' => 'required',
+    //         'jam_selesai' => 'required',
+    //     ]);
+    //      jadwal::create($requestData);
+    //    return redirect('/admin/jadwal')->with('success', 'Data Berhasil Disimpan');
+    // }
+
     public function store(Request $request)
-    {
-        $requestData = $request->validate([
-            'user_id' => 'required',
-            'kelas_id' => 'required',
-            'mapel_id' => 'required',
-            'semester_id' => 'required',
-            'tahunajar_id' => 'required',
-            'hari' => 'required',
-            'jam_masuk' => 'required',
-            'jam_selesai' => 'required',
-        ]);
-        $user = jadwal::create($requestData);
-       return redirect('/admin/jadwal')->with('success', 'Data Berhasil Disimpan');
+{
+    // Validasi data dari request
+    $requestData = $request->validate([
+        'user_id' => 'required',
+        'kelas_id' => 'required',
+        'mapel_id' => 'required',
+        'semester_id' => 'required',
+        'tahunajar_id' => 'required',
+        'hari' => 'required',
+        'jam_masuk' => 'required',
+        'jam_selesai' => 'required',
+    ]);
+
+    // Memeriksa apakah kombinasi data sudah ada di dalam database
+    // $existingRecord = jadwal::where([
+    //     'user_id' => $requestData['user_id'],
+    //     'hari' => $requestData['hari'],
+    //     'jam_masuk' => $requestData['jam_masuk'],
+    //     'jam_selesai' => $requestData['jam_selesai'],
+    // ])->exists();
+
+    $existingRecord = jadwal::where([
+        'user_id' => $requestData['user_id'],
+        'hari' => $requestData['hari'],
+        'semester_id' => $requestData['semester_id'],
+    ])->where(function($query) use ($requestData) {
+        // $query->whereBetween('jam_masuk', [$requestData['jam_masuk'], $requestData['jam_selesai']]);
+        $query->whereBetween('jam_masuk', [$requestData['jam_masuk'], $requestData['jam_selesai']])
+        ->orWhereBetween('jam_selesai', [$requestData['jam_masuk'], $requestData['jam_selesai']])
+        ->orWhere(function($query) use ($requestData) {
+            $query->where('jam_masuk', '<', $requestData['jam_masuk'])
+                ->where('jam_selesai', '>', $requestData['jam_selesai']);
+        });
+})->exists();
+    // Jika data sudah ada, kembalikan respon dengan pesan error
+    if ($existingRecord) {
+        Session::flashInput($request->input());
+
+        return redirect('/admin/jadwal/create')->with('error', 'Jadwal untuk guru tersebut sudah ada');
     }
+
+    // Jika tidak, buat dan simpan data baru
+    jadwal::create($requestData);
+
+    // Redirect pengguna ke halaman /admin/jadwal dengan pesan sukses
+    return redirect('/admin/jadwal')->with('success', 'Data Berhasil Disimpan');
+}
+
 
     /**
      * Display the specified resource.

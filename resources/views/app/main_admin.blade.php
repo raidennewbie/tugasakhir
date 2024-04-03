@@ -22,6 +22,9 @@
     <script src="{{ asset('assets') }}/vendor/js/helpers.js"></script>
     <script src="{{ asset('assets') }}/js/config.js"></script>
     <link rel="stylesheet" href="{{ asset('assets') }}/vendor/libs/select2/select2.min.css"/>
+    <!-- Tambahkan di bagian head -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -94,7 +97,7 @@
                     </li>
 
                     <li class="menu-item {{ Request::is('admin/laporan*') ? 'active' : '' }}">
-                        <a href="/admin/laporan/absensi" class="menu-link">
+                        <a href="/admin/laporan" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-ghost"></i>
                             <div data-i18n="Analytics">Laporan</div>
                         </a>

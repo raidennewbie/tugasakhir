@@ -23,8 +23,6 @@ class Kelas extends Model
         return $this->hasMany(jadwal::class);
     }
 
-
-
         /**
      * Cari pengguna berdasarkan nama atau email.
      *

@@ -33,9 +33,9 @@ class KelasSeeder extends Seeder
         //     'name' => 'XI AGAMA',
         // ]);
 
-        Kelas::create([
-            'name' => 'XI MIA',
-        ]);
+        // Kelas::create([
+        //     'name' => 'XI MIA',
+        // ]);
 
         Kelas::create([
             'name' => 'XI IIS 1',

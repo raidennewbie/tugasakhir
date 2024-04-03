@@ -13,41 +13,41 @@ class MapelSeeder extends Seeder
      */
     public function run(): void
     {
-        Mapel::create([
-            'name' => 'FISIKA',
-        ]);
+        // Mapel::create([
+        //     'name' => 'FISIKA',
+        // ]);
 
         Mapel::create([
             'name' => 'MATEMATIKA',
         ]);
 
-        Mapel::create([ 
-            'name' => 'BIOLOGI',
-        ]);
+        // Mapel::create([ 
+        //     'name' => 'BIOLOGI',
+        // ]);
 
         Mapel::create([
             'name' => 'SOSIOLOGI',
         ]);
 
-        Mapel::create([
-            'name' => 'AKIDAH AKHLAK',
-        ]);
+        // Mapel::create([
+        //     'name' => 'AKIDAH AKHLAK',
+        // ]);
 
-        Mapel::create([
-            'name' => 'BAHASA INDONESIA',
-        ]);
+        // Mapel::create([
+        //     'name' => 'BAHASA INDONESIA',
+        // ]);
 
-        Mapel::create([
-            'name' => 'BAHASA INGGRIS',
-        ]);
+        // Mapel::create([
+        //     'name' => 'BAHASA INGGRIS',
+        // ]);
 
-        Mapel::create([
-            'name' => 'KIMIA',
-        ]);
+        // Mapel::create([
+        //     'name' => 'KIMIA',
+        // ]);
 
-        Mapel::create([
-            'name' => 'AL-QURAN HADIS',
-        ]);
+        // Mapel::create([
+        //     'name' => 'AL-QURAN HADIS',
+        // ]);
 
         Mapel::create([
             'name' => 'GEOGRAFI',
@@ -57,16 +57,16 @@ class MapelSeeder extends Seeder
             'name' => 'EKONOMI',
         ]);
 
-        Mapel::create([
-            'name' => 'BAHASA ARAB',
-        ]);
+        // Mapel::create([
+        //     'name' => 'BAHASA ARAB',
+        // ]);
 
-        Mapel::create([
-            'name' => 'PENJASORKES',
-        ]);
+        // Mapel::create([
+        //     'name' => 'PENJASORKES',
+        // ]);
 
-        Mapel::create([
-            'name' => 'SEJARAH',
-        ]);
+        // Mapel::create([
+        //     'name' => 'SEJARAH',
+        // ]);
     }
 }

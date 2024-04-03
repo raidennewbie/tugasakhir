@@ -13,9 +13,9 @@ class TahunajarSeeder extends Seeder
      */
     public function run(): void
     {
-        Tahunajar::create([
-            'tahun_ajaran' => '2022/2023',
-        ]);
+        // Tahunajar::create([
+        //     'tahun_ajaran' => '2022/2023',
+        // ]);
 
         Tahunajar::create([
             'tahun_ajaran' => '2023/2024',

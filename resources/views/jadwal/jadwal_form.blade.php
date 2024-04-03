@@ -5,6 +5,32 @@
         <div class="app-brand mb-1 p-2 m-2">
             <h4 class="demo text-body">Tambah Jadwal</h4>
         </div>
+
+        {{-- @if (session()->has('error'))
+        <div class="card alert alert-danger col-lg-12 p-2" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif --}}
+
+    @if (session()->has('error'))
+    <div id="errorMessage" class="card alert alert-danger col-lg-12 p-2" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sembunyikan pesan setelah 5 detik (5000 milidetik)
+        setTimeout(function () {
+            var errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }, 2000); // 5000 milidetik = 5 detik
+    });
+</script>
+
+
         {{-- form --}}
         <div class="card-body">
             <form action="{{ route('admin.jadwal.store') }}" method="POST">

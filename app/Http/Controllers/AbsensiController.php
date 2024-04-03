@@ -68,7 +68,7 @@ class AbsensiController extends Controller
             'siswa_id.*' => 'required', 
             'status.*' => [
                 'required',
-                Rule::in(['hadir', 'izin', 'alpa']), 
+                Rule::in(['H', 'I', 'A']), 
             ],
         ]);
         $jadwal = jadwal::findOrFail($request->jadwal_id);
@@ -81,31 +81,29 @@ class AbsensiController extends Controller
         }
 
         foreach ($siswaIds as $siswaId => $status) {
-            if (empty($status) || empty($siswaId)) {
-                return redirect()
-                    ->back()
-                    ->with('error', 'Status untuk salah satu siswa masih kosong');
-            }
+
 
             Absensi::where('jadwal_id', $jadwal->id)
-            ->where('created_at', date('Y-m-d'))
+            ->whereDate('created_at', Carbon::today()->toDateString()) // Gunakan Carbon untuk mendapatkan tanggal hari ini
             ->where('mapel_id', $jadwal->mapel_id)
             ->where('semester_id', $jadwal->semester_id)
             ->where('tahunajar_id', $jadwal->tahunajar_id)
             ->where('kelas_id', $jadwal->kelas_id)
-            ->where('siswa_id', $siswaId)->delete();
-
-            Absensi::create([
-                'user_id' => Auth::id(),
-                'created_at' => date('Y-m-d'),
-                'jadwal_id' => $jadwal->id,
-                'siswa_id' => $siswaId,
-                'mapel_id' => $jadwal->mapel_id,
-                'kelas_id' => $jadwal->kelas_id,
-                'semester_id' => $jadwal->semester_id,
-                'tahunajar_id' => $jadwal->tahunajar_id,
-                'status' => $status,
-            ]);
+            ->where('siswa_id', $siswaId)
+            ->delete();
+    
+        // Buat data baru
+        Absensi::create([
+            'user_id' => Auth::id(),
+            'created_at' => Carbon::today(), // Gunakan Carbon untuk mendapatkan tanggal hari ini
+            'jadwal_id' => $jadwal->id,
+            'siswa_id' => $siswaId,
+            'mapel_id' => $jadwal->mapel_id,
+            'kelas_id' => $jadwal->kelas_id,
+            'semester_id' => $jadwal->semester_id,
+            'tahunajar_id' => $jadwal->tahunajar_id,
+            'status' => $status,
+        ]);
         }
 
         return redirect('/guru/jadwal')->with('success', 'Data Berhasil Disimpan');

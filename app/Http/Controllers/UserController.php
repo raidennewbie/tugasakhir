@@ -10,23 +10,6 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-
-    //  public function index(Request $request)
-    //  {
-    //     $query = $request->input('query');
-
-    //     $data['active'] = 'admin/user';
-    
-    //     if ($query) {
-    //         $model = User::search($query)->paginate(10);
-    //     } else {
-    //         $model = User::latest()->paginate(10);
-    //     }
-    
-    //     return view('admin.admin_index', compact('model', 'query', 'data'));
-    //  }
-
     public function index(Request $request)
 {
     $query = $request->input('query');

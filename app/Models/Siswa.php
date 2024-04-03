@@ -27,6 +27,11 @@ public function absensi()
 {
     return $this->hasMany(Absensi::class, 'siswa_id');
 }
+
+public function nilai()
+{
+    return $this->hasMany(Nilai::class, 'siswa_id');
+}
  /**
      * Cari pengguna berdasarkan nama atau email.
      *
